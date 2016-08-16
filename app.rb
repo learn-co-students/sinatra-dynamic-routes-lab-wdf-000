@@ -41,6 +41,8 @@ class App < Sinatra::Base
       "#{@number1 * @number2}"
     elsif @operation == "divide"
       "#{@number1 / @number2}"
+    else
+      "Cannot perform this operation"
     end
   end
 end
