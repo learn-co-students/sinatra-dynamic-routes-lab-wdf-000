@@ -35,27 +35,19 @@ class App < Sinatra::Base
     @number1 = params[:number1].to_i
     @number2 = params[:number2].to_i
 
-    # if @operation == 'add'
-    #   answer = @number1 + @number2
-    # elsif @operation == 'subtract'
-    #   answer = @number1 - @number2
-    # elsif @operation == 'multiply'
-    #   answer = @number1 * @number2
-    # elsif @operation == divide
-    #   answer = @number1 / @number2
-    # end
-    # "#{answer}"
-
-    if @operation == 'add'
-      x = +
-    elsif @operation == 'subtract'
-      x = -
+    x = ""
+    if @operation == 'add' || 'plus'
+      x = '+'
+    elsif @operation == 'subtract' || 'minus'
+      x = '-'
+    elsif @operation == 'multiply'
+      x = '*'
+    elsif @operation == 'divide'
+      x = '/'
+    else x = @operation
     end
-    answer = @number x 
-    "#{@number1} x @number2}"
-
-    "#{params[:number1].to_i.send(params[:operation], params[:number2].to_i)}"
-  
+    answer = @number1.send(x, @number2)
+    "#{answer}"
   end
 
 
