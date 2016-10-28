@@ -37,6 +37,6 @@ class App < Sinatra::Base
     num1 = params[:number1]
     num2 = params[:number2]
 
-    eval([num1, operator, num2].join(' '))
+    instance_eval([num1, operator, num2].join(' '))
   end
 end
