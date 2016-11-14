@@ -3,36 +3,54 @@ require_relative 'config/environment'
 class App < Sinatra::Base
 
 	get "/reversename/:name" do 
-		@user_name = params[:name].reverse
-		"#{@user_name}"
+		params[:name].reverse
+
+		#or:
+		# @user_name = params[:name].reverse
+		# "#{@user_name}"
 	end
 
 	get "/square/:number" do
-		number = params[:number].to_i
-		@squared = number ** 2
+		@squared = params[:number].to_i ** 2
 		"#{@squared}"
+
+		# or:
+		# number = params[:number].to_i
+		# @squared = number ** 2
+		# "#{@squared}"
 	end
 
 	get '/say/:number/:phrase' do
 		@number = params[:number].to_i
-	 	@phrase = params[:phrase]
+		@phrase = params[:phrase]
 
-		@result = ""
+		@output = ""
 		@number.times do
-			@result += "#{@phrase}\n"
+			@output << "#{@phrase}\n" 
 		end
-		@result
-	end
-	# or:
-	# 	number = params[:number].to_i
-	#  	phrase = params[:phrase]
+		@output
 
-	# 	result = ""
-	# 	number.times do
-	# 		result += "#{@phrase}\n"
-	# 	end
-	# 	result
-	# end
+		# or:
+		#@number = params[:number].to_i
+		#@phrase = params[:phrase]
+
+		#@result = ""
+		#@number.times do
+		#@result += "#{@phrase}\n"
+		#end
+		#@result
+
+		# or:
+		# 	number = params[:number].to_i
+		#  	phrase = params[:phrase]
+
+		# 	result = ""
+		# 	number.times do
+		# 		result += "#{@phrase}\n"
+		# 	end
+		# 	result
+		# end
+	end
 
 		get "/say/:word1/:word2/:word3/:word4/:word5" do
 			@word1 = params[:word1]
